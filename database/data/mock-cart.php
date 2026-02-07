@@ -1,0 +1,19 @@
+<?php
+
+return [
+    [
+        'user_id' => 1,
+        'product_id' => 3,
+        'quantity' => 2,
+    ],
+    [
+        'user_id' => 1,
+        'product_id' => 5,
+        'quantity' => 1,
+    ],
+    [
+        'user_id' => 1,
+        'product_id' => 10,
+        'quantity' => 3,
+    ],
+];
