@@ -22,6 +22,9 @@
                     <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.*')">
                         {{ __('Productos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.offers.index')" :active="request()->routeIs('admin.offers.*')">
+                        {{ __('Ofertas') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('admin.wishlist.index')" :active="request()->routeIs('admin.wishlist.*')">
                         {{ __('❤️ Lista de Deseos') }}
                     </x-nav-link>
@@ -86,6 +89,9 @@
             {{-- Enlaces de Administración --}}
             <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.*')">
                 {{ __('Productos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.offers.index')" :active="request()->routeIs('admin.offers.*')">
+                {{ __('Ofertas') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.wishlist.index')" :active="request()->routeIs('admin.wishlist.*')">
                 {{ __('❤️ Lista de Deseos') }}

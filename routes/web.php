@@ -70,6 +70,10 @@ Route::middleware(['auth', 'log.activity'])->prefix('admin')->name('admin.')->gr
     Route::get('/products', [ProductController::class, 'adminIndex'])->name('products.index');
     Route::resource('products', ProductController::class)->except(['index', 'show']);
 
+    // Rutas de gestión de ofertas
+    Route::get('/offers', [OfferController::class, 'adminIndex'])->name('offers.index');
+    Route::resource('offers', OfferController::class)->except(['index', 'show']);
+
     // Rutas para la lista de deseos (Wishlist)
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/{id}', [WishlistController::class, 'store'])->name('wishlist.store');
