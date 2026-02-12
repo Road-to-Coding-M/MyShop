@@ -11,10 +11,7 @@
                 <div>
                     <h6 class="font-bold mb-4">Enlaces Rápidos</h6>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Sobre Nosotros</a></li>
-                        <li><a href="#" class="hover:text-white transition">Política de Privacidad</a></li>
-                        <li><a href="#" class="hover:text-white transition">Términos y Condiciones</a></li>
-                        <li><a href="#" class="hover:text-white transition">Envíos y Devoluciones</a></li>
+                        <li><a href="https://github.com/Road-to-Coding-M/MyShop.git" class="hover:text-white transition">Sobre Nosotros</a></li>
                     </ul>
                 </div>
                 <div>
