@@ -4,8 +4,8 @@
         <div class="flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center space-x-4">
-                <a href="{{ route('welcome') }}" class="text-2xl font-bold text-primary-600">
-                    Mi Tienda
+                <a href="{{ route('welcome') }}" class="inline-flex items-center">
+                    <img src="{{ asset('storage/products/logo.png') }}" alt="Mi Tienda Logo" class="h-10 w-auto">
                 </a>
             </div>
 

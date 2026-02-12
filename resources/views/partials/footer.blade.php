@@ -3,7 +3,7 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h5 class="text-xl font-bold mb-4">Mi Tienda</h5>
+                    <img src="{{ asset('storage/products/logo.png') }}" alt="Mi Tienda Logo" class="h-10 w-auto mb-4">
                     <p class="text-gray-400">
                         Tu tienda de confianza para encontrar los mejores productos.
                     </p>
@@ -24,14 +24,14 @@
                 <div>
                     <h6 class="font-bold mb-4">Síguenos</h6>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">📘 Facebook</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">📷 Instagram</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">🐦 Twitter</a>
+                        <a href="https://github.com/Road-to-Coding-M/MyShop.git" class="text-gray-400 hover:text-white transition">Facebook</a>
+                        <a href="https://github.com/Road-to-Coding-M/MyShop.git" class="text-gray-400 hover:text-white transition">Instagram</a>
+                        <a href="https://github.com/Road-to-Coding-M/MyShop.git" class="text-gray-400 hover:text-white transition">Twitter</a>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Hygge. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
