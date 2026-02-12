@@ -6,7 +6,11 @@
 <!-- Imagen del Producto -->
 <div class="bg-white rounded-lg shadow-lg p-6">
 <div class="h-96 bg-gray-200 flex items-center justify-center">
+@if($product->image)
+<img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover rounded-lg">
+@else
 <span class="text-8xl">📦</span>
+@endif
 </div>
 </div>
 <!-- Información del Producto -->

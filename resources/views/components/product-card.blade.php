@@ -10,7 +10,11 @@
 </div>
 @endif
 <div class="h-48 bg-gray-200 flex items-center justify-center {{ $product->offer ? 'bg-gradient-to-br from-orange-50 to-red-50' : '' }}">
+@if($product->image)
+<img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
+@else
 <span class="text-4xl">📦</span>
+@endif
 </div>
 <div class="p-6">
 <h4 class="text-xl font-bold mb-2 text-gray-900">{{ $product->name }}</h4>

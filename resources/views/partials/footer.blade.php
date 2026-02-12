@@ -3,7 +3,7 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h5 class="text-xl font-bold mb-4">🛍️ Mi Tienda</h5>
+                    <h5 class="text-xl font-bold mb-4">Mi Tienda</h5>
                     <p class="text-gray-400">
                         Tu tienda de confianza para encontrar los mejores productos.
                     </p>
@@ -17,10 +17,8 @@
                 <div>
                     <h6 class="font-bold mb-4">Atención al Cliente</h6>
                     <ul class="space-y-2 text-gray-400">
-                        <li>📞 Teléfono de contacto</li>
-                        <li>📧 Email de contacto</li>
-                        <li>💬 Chat en vivo</li>
-                        <li>🕒 Horario de atención</li>
+                        <li>Teléfono de contacto: 123 456 789</li>
+                        <li>Email de contacto: miTienda@miTienda.com</li>
                     </ul>
                 </div>
                 <div>

@@ -14,9 +14,9 @@ class WelcomeController extends Controller
        */
       public function index(): View
       {
-            // Get featured products (first 3 products with offers for the featured section)
+            // Get featured products (first 3 products for the featured section)
             $featuredProducts = Product::with(['category', 'offer'])
-                  ->whereNotNull('offer_id')
+                  ->orderBy('id')
                   ->take(3)
                   ->get();
             // Get featured categories (first 4 categories for the categories section)

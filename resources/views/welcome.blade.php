@@ -31,123 +31,66 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         </div>
     </section>
 
-    <!-- Categorías de Productos -->
+            <!-- Categorías de Productos -->
     <section class="py-16">
         <div class="container mx-auto px-6">
             <h3 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
                 Nuestras Categorías
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 product-card cursor-pointer">
-                    <div class="text-4xl text-primary-500 mb-4">📦</div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">VELA</h4>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Esta vela con su olor parecera que estás en una cabaña dentro de los Alpes.
-                    </p>
-                    <button class="text-primary-600 font-semibold hover:text-primary-700 transition">
-                        Ver Productos →
-                    </button>s
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 product-card cursor-pointer">
-                    <div class="text-4xl text-primary-500 mb-4">🛍️</div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">TAZA</h4>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Con esta taza, podrás prepararte un chocolate caliente y se mantendrá caliente durante horas.
-                    </p>
-                    <button class="text-primary-600 font-semibold hover:text-primary-700 transition">
-                        Ver Productos →
-                    </button>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 product-card cursor-pointer">
-                    <div class="text-4xl text-primary-500 mb-4">⭐</div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">MANTA</h4>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Esta manta a cuadro y pelito te mantiene caliente.
-                    </p>
-                    <button class="text-primary-600 font-semibold hover:text-primary-700 transition">
-                        Ver Productos →
-                    </button>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 product-card cursor-pointer">
-                    <div class="text-4xl text-primary-500 mb-4">🎯</div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">TOCADISCO</h4>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Con este tocadisco podrás escuchar canciónes que te haga relajarte.
-                    </p>
-                    <button class="text-primary-600 font-semibold hover:text-primary-700 transition">
-                        Ver Productos →
-                    </button>
-                </div>
-
+                @forelse($featuredCategories as $category)
+                    <x-category-card :category="$category" />
+                @empty
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-gray-500 text-lg">No hay categorías disponibles.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
-
-    <!-- Productos Destacados -->
+<!-- Productos Destacados -->
     <section class="py-16 bg-gray-100 dark:bg-gray-800">
         <div class="container mx-auto px-6">
             <h3 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
                 Productos Destacados
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden product-card">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
-                        <span class="text-4xl">📦</span>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Producto 1</h4>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Descripción del primer producto</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-primary-600">€XX</span>
-                            <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition">
-                                Añadir al Carrito
-                            </button>
+                @forelse($featuredProducts as $product)
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden product-card">
+                        <div class="h-48 bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
+                            @if($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
+                            @else
+                                <span class="text-4xl">📦</span>
+                            @endif
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">{{ $product->name }}</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">{{ $product->description }}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    @if($product->offer)
+                                        <span class="text-sm text-gray-400 line-through">€{{ number_format($product->price, 2) }}</span>
+                                        <span class="text-2xl font-bold text-orange-600">€{{ number_format($product->final_price, 2) }}</span>
+                                    @else
+                                        <span class="text-2xl font-bold text-primary-600">€{{ number_format($product->price, 2) }}</span>
+                                    @endif
+                                </div>
+                                <a href="{{ route('products.show', $product->id) }}" class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition">
+                                    Ver Detalles
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden product-card">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
-                        <span class="text-4xl">🛍️</span>
+                @empty
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-gray-500 text-lg">No hay productos destacados disponibles.</p>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Producto 2</h4>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Descripción del segundo producto</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-primary-600">€XX</span>
-                            <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition">
-                                Añadir al Carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden product-card">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
-                        <span class="text-4xl">⭐</span>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Producto 3</h4>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Descripción del tercer producto</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-primary-600">€XX</span>
-                            <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition">
-                                Añadir al Carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
+                @endforelse
             </div>
         </div>
     </section>
-
-    @endsection
+@endsection
 
     @push('scripts')
      <script>
