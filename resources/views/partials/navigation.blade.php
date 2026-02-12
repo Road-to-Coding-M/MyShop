@@ -1,4 +1,4 @@
-<nav class="hidden md:flex space-x-8">
+<nav class="hidden md:flex space-x-8" aria-label="Main navigation">
     <a href="{{ route('welcome') }}" 
        class="text-gray-700 hover:text-primary-600 transition {{ request()->routeIs('welcome') ? 'text-primary-600 font-semibold' : '' }}">
         Inicio
